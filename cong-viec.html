@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Công việc - Nhóm 3</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS dùng chung -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- THANH ĐIỀU HƯỚNG -->
+<header class="header">
+    <div class="container header-content">
+
+        <a href="index.html" class="logo">
+            <img src="image/logo-nhom3.png" alt="Logo Nhóm 3">
+
+            <div>
+                <small>KHÔNG GIAN ĐỒ ÁN</small>
+                <strong>NHÓM 3</strong>
+            </div>
+        </a>
+
+        <nav>
+            <a href="index.html">Giới thiệu</a>
+            <a href="ke-hoach.html">Kế hoạch</a>
+            <a href="cong-viec.html">Công việc</a>
+            <a href="san-pham.html">Sản phẩm</a>
+            <a href="nhat-ky.html">Nhật ký</a>
+            <a href="index.html#thanh-vien">Thành viên</a>
+            <a href="lien-he.html">Liên hệ</a>
+        </nav>
+
+        <button id="themeBtn" class="theme-btn">
+            <i class="bi bi-moon-stars"></i>
+        </button>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <!-- BẢNG PHÂN CÔNG -->
+    <section id="cong-viec" class="section">
+
+        <div class="section-title">
+            05. BẢNG PHÂN CÔNG
+        </div>
+
+        <h2>Công việc của nhóm</h2>
+
+        <div class="row g-3">
+
+            <!-- DANH SÁCH CÔNG VIỆC -->
+            <div class="col-lg-8">
+
+                <div class="filter-box">
+
+                    <div>
+                        <label>Tìm kiếm công việc</label>
+
+                        <input type="text"
+                               id="searchTask"
+                               placeholder="Nhập tên công việc...">
+                    </div>
+
+                    <div>
+                        <label>Người phụ trách</label>
+
+                        <select id="filterPerson">
+                            <option value="">Tất cả thành viên</option>
+                            <option>Minh</option>
+                            <option>Giang</option>
+                            <option>Nhi</option>
+                            <option>Thanh</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Trạng thái</label>
+
+                        <select id="filterStatus">
+                            <option value="">Tất cả trạng thái</option>
+                            <option value="todo">Chưa làm</option>
+                            <option value="doing">Đang làm</option>
+                            <option value="done">Hoàn thành</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div id="taskList" class="task-list">
+
+                    <div class="empty">
+                        <i class="bi bi-clipboard-check"></i>
+
+                        <p>Chưa có công việc phù hợp</p>
+
+                        <small>
+                            Hãy thêm công việc đầu tiên cho nhóm.
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- THÊM CÔNG VIỆC -->
+            <div class="col-lg-4">
+
+                <div class="form-card">
+
+                    <div class="section-title">
+                        THÊM MỚI
+                    </div>
+
+                    <h3>Thêm công việc</h3>
+
+                    <form id="taskForm">
+
+                        <label>Tên công việc</label>
+
+                        <input type="text"
+                               id="taskName"
+                               placeholder="Nhập tên công việc"
+                               required>
+
+                        <label>Người phụ trách</label>
+
+                        <select id="taskPerson">
+                            <option>Minh</option>
+                            <option>Giang</option>
+                            <option>Nhi</option>
+                            <option>Thanh</option>
+                        </select>
+
+                        <div class="row">
+
+                            <div class="col-6">
+                                <label>Deadline</label>
+
+                                <input type="date" id="taskDeadline">
+                            </div>
+
+                            <div class="col-6">
+                                <label>Ưu tiên</label>
+
+                                <select id="taskPriority">
+                                    <option>Trung bình</option>
+                                    <option>Cao</option>
+                                    <option>Thấp</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <label>Ghi chú</label>
+
+                        <textarea id="taskNote"
+                                  rows="3"
+                                  placeholder="Mô tả công việc..."></textarea>
+
+                        <button type="submit" class="main-btn full-btn">
+                            + THÊM CÔNG VIỆC
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CẢNH BÁO TIẾN ĐỘ -->
+    <section class="section">
+
+        <div class="row g-3">
+
+            <div class="col-lg-6">
+
+                <div class="section-title">
+                    06. CẢNH BÁO TIẾN ĐỘ
+                </div>
+
+                <div class="card-box">
+
+                    <h2>Cần chú ý hôm nay</h2>
+
+                    <div class="warning danger">
+                        <span>● Công việc quá hạn</span>
+                        <b id="overdue">0</b>
+                    </div>
+
+                    <div class="warning warning-yellow">
+                        <span>● Sắp đến hạn</span>
+                        <b id="soon">0</b>
+                    </div>
+
+                    <div class="warning success">
+                        <span>● Đã hoàn thành</span>
+                        <b id="doneWarning">0</b>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NHIỆM VỤ HÔM NAY -->
+            <div class="col-lg-6">
+
+                <div class="section-title">
+                    07. NHIỆM VỤ HÔM NAY
+                </div>
+
+                <div class="card-box">
+
+                    <h2>Ưu tiên ngày mới</h2>
+
+                    <b class="today" id="todayDate"></b>
+
+                    <p class="today-note">
+                        Hãy kiểm tra deadline và hoàn thành
+                        những công việc được giao.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+<!-- CHÂN TRANG -->
+<footer>
+    <div class="container footer-content">
+
+        <span>
+            © 2026 – Nhóm 3. Cùng học, cùng làm, cùng tiến bộ.
+        </span>
+
+        <span>HTML · CSS · JavaScript · Bootstrap</span>
+
+    </div>
+</footer>
+
+
+<!-- JAVASCRIPT DÙNG CHUNG -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
